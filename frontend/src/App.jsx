@@ -119,7 +119,7 @@ const App = () => {
       parts: [{ text: msg.content }],
     }));
     try {
-      const res = await fetch("https://chatbot-grokchat-1.onrender.com/api/chat", {
+      const res = await fetch("https://chatbot-grokchat-3.onrender.com/api/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
