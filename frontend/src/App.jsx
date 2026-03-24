@@ -127,7 +127,15 @@ const App = () => {
         body: JSON.stringify({
           message: conversation.messages[conversation.messages.length - 1].content,
         }),
-      });
+      }); 
+      let data;
+      try {
+        data = await res.json();
+      } catch (err) {
+        console.error("Failed to parse JSON:", await res.text());
+        throw err;
+      }
+      
       const data = await res.json();
       if (!res.ok) throw new Error(data.error.message);
       // Clean up response formatting
