@@ -128,7 +128,7 @@ const App = () => {
           message: conversation.messages[conversation.messages.length - 1].content,
         }),
       }); 
-      let data;
+    
       try {
         data = await res.json();
       } catch (err) {
