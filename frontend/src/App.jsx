@@ -119,7 +119,7 @@ const App = () => {
       parts: [{ text: msg.content }],
     }));
     try {
-      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}`, {
+      const res = await fetch("https://chatbot-grokchat-6.onrender.com/api/chat/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -128,13 +128,7 @@ const App = () => {
           message: conversation.messages[conversation.messages.length - 1].content,
         }),
       }); 
-    
-      try {
-        data = await res.json();
-      } catch (err) {
-        console.error("Failed to parse JSON:", await res.text());
-        throw err;
-      }
+
       
       const data = await res.json();
       if (!res.ok) throw new Error(data.error.message);
